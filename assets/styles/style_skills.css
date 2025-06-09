@@ -1,0 +1,434 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
+
+:root {
+  /* Default font family for the entire document */
+  --font-family: "Roboto", sans-serif;
+  --normal-font: 400;
+  --bold-font: 700;
+  --line-height: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family);
+}
+
+/*Styles for main*/
+main {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header styles*/
+header {
+  background-color: #2196F3;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+  position: relative; /* Importante para posicionar el menú */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  border-radius: 80px;
+  padding: 6px;
+}
+
+.logo a {
+  color: white;
+  text-decoration: none;
+}
+
+.logo ul {
+  list-style: none;
+}
+
+
+/* --- Navbar styles --- */
+.navbar {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* --- Link Styles (ul.nav-links) --- */
+.nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+/* --- Hamburger Menu Styles (for responsive) --- */
+.menu-toggle {
+  display: none;
+}
+
+/*Hamburguer menu*/
+.hamburger {
+  color: white;
+  font-size: 28px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  display: none; /* Hidden by default, shown in media queries */
+  user-select: none;
+}
+
+
+/*Styles of "skill-container"*/
+.skills-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #E3F2FD;
+  margin: 20px;
+  border-radius: 8px;
+}
+
+.skills-img {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+  margin: 0 20px 20px 20px;
+  border-radius: 8px;
+}
+
+.icon-card {
+  width: 150px;
+  height: 120px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.icon-card:hover {
+  transform: scale(1.1);
+}
+
+
+.skills-img img {
+  width: 100px;
+}
+
+.skills-text {
+  font-size: 1.1em;
+  line-height: 1.6;
+  width: fit-content;
+  margin: 0 auto;
+  color: #424242;
+  padding: 0 16px;
+  box-shadow: 4px 10px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  padding: 4%;
+  background-color: white;
+}
+
+
+/* Footer */
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #0D47A1;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/*
+Aligns the text within the footer location section so that it is justified.
+*/
+.footer-ubication {
+  text-align: justify;
+}
+
+/*
+Aligns items within the social media section to the center (although `align-items` only works in flex or grid containers).
+*/
+.footer-social-media {
+  align-items: center;
+}
+
+/*
+Styles for list items within the footer location section.
+*/
+.footer-ubication li {
+  margin-bottom: 10px;
+  color: white;
+}
+
+/*
+Styles the iframe inside the footer location section to take up the minimum width and height of the content.
+
+*/
+.footer-ubication iframe {
+  width: min-content;
+  height: min-content;
+}
+
+/* Sets the text color for paragraphs and headings within the footer container to white.
+*/
+.footer-container p,
+.footer-container h3 {
+  color: white;
+}
+
+/* Sets the width of images within the social media section.
+*/
+.footer-social-media img {
+  width: 40px;
+}
+
+/* Sets the width and top margin for anchor tags within the social media section.
+*/
+.footer-social-media a {
+  width: 70px;
+  margin-top: 20px;
+}
+
+/* General styles of footer
+
+*/
+footer {
+  background-color: #0D47A1;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* More detailed styling for the footer container, using flexbox for responsiveness.
+
+*/
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+/* Styles for the location and social media sections within the footer.
+- `flex: 1`: Allows them to grow and shrink.
+- `min-width`: Ensures a minimum width, preventing them from becoming too narrow.
+- `margin-bottom`: Adds space below each section.
+*/
+.footer-ubication,
+.footer-social-media {
+  flex: 1;
+  min-width: 280px;
+  margin-bottom: 20px;
+}
+
+/* Styles for paragraphs within the footer location section.
+*/
+.footer-ubication p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: white;
+}
+
+/* Styles for the iframe specifically for responsiveness within the footer location.
+- `width: 100%`, `max-width`: Ensures it scales with its container but doesn't exceed a certain size.
+- `height`, `border-radius`, `margin-bottom`: Sets dimensions, rounds corners, and adds bottom spacing.
+*/
+.footer-ubication iframe {
+  width: 100%;
+  max-width: 400px;
+  height: 200px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Styles for the social media section header.
+*/
+.footer-social-media h3 {
+  margin-bottom: 15px;
+  font-size: 1.2em;
+  color: white;
+}
+
+/* Styles for individual social media links.
+- `display: inline-block`: Allows you to set width/height and horizontal margins.
+*/
+.social-links {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+/* Styles for social media icons (images).
+- `width`, `height`: Sets the dimensions.
+- `transition`: Adds a smooth transition for transformation changes.
+*/
+.social-links img {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.3s ease;
+}
+
+/* Adds a slight scaling effect to social media icons when hovered over.
+*/
+.social-links img:hover {
+  transform: scale(1.1);
+}
+
+
+/* Tablet (768px) */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    z-index: 200; 
+  }
+
+
+  .navbar {
+    display: none; 
+    flex-direction: column;
+    width: 100%;
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    right: auto;
+    background-color: #2196F3;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+ 
+  .menu-toggle:checked ~ .navbar {
+    display: flex; 
+  }
+
+
+  .navbar .nav-links {
+    flex-direction: column;
+    width: 100%;
+    display: flex; 
+  }
+
+  .nav-links li {
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  /* Responsive styles for skills page content */
+  .skills-img {
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 15px;
+    margin: 0 10px 10px 10px;
+    padding: 10px;
+  }
+
+  .icon-card {
+    width: 100px; 
+    height: 90px;
+  }
+
+  .skills-text {
+    font-size: 1em;
+    padding: 3%;
+    margin: 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-ubication,
+  .footer-social-media {
+    min-width: unset;
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-ubication p {
+    text-align: center;
+  }
+}
+
+/* Mobile (480px) */
+@media (max-width: 480px) {
+  header {
+    padding: 0 10px;
+  }
+
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logo h1 {
+    font-size: 1.2em;
+  }
+
+  .hamburger {
+    font-size: 24px;
+  }
+
+  /* Responsive styles for skills page content */
+  .skills-img {
+    grid-template-columns: 1fr; 
+    gap: 10px;
+    padding: 5px;
+    margin: 0 5px 5px 5px;
+  }
+
+  .icon-card {
+    width: 80px; 
+    height: 70px;
+  }
+
+  .skills-container {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .skills-text {
+    padding: 2%;
+    font-size: 0.9em;
+  }
+
+  footer {
+    padding: 20px 10px;
+    margin-top: 30px;
+  }
+
+  .footer-ubication p {
+    font-size: 0.8em;
+  }
+
+  .footer-social-media h3 {
+    font-size: 1em;
+  }
+
+  .social-links img {
+    width: 30px;
+    height: 30px;
+  }
+}
