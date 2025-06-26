@@ -1,227 +1,411 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
+/* Google Fonts Import */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&family=Space+Mono&display=swap");
 
+/* Global CSS Variables */
 :root {
-  /* Default font family for the entire document */
-  --font-family: "Roboto", sans-serif;
-  --normal-font: 400;
-  --bold-font: 700;
-  --line-height: 20px;
+  /* Fonts */
+  --font-body: 'Roboto', sans-serif;
+  --font-heading: 'Roboto', sans-serif;
+  --font-code: 'Space Mono', monospace;
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 900;
+
+  /* Colors - Tech Palette */
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
+  --color-accent: #00f0ff;
+  --color-dark-bg: #1a1a2e;
+  --color-dark-bg-alt: #16213e;
+  --color-text-light: #e0e0e0;
+  --color-text-dark: #333;
+  --color-success: #28a745;
+  --color-error: #dc3545;
+  --color-light-bg: #ffffff;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-xxl: 5rem;
+
+  /* Font Sizes */
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-h1: 2.8rem;
+  --font-size-h2: 2.2rem;
+  --font-size-h3: 1.8rem;
+
+  /* Borders & Shadows */
+  --border-radius: 8px;
+  --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --transition-ease: ease-in-out;
 }
 
+/* Base Styles & Global Resets */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font-family);
+  font-family: var(--font-body);
+  line-height: 1.6;
 }
 
-/*Styles for main*/
+body {
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-light);
+  overflow-x: hidden;
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+h4 { font-size: var(--font-size-xl); }
+
+/* General Link Styles */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-ease);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* Button Styles */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+    transition: background-color var(--transition-speed) var(--transition-ease),
+                transform var(--transition-speed) var(--transition-ease),
+                box-shadow var(--transition-speed) var(--transition-ease);
+    cursor: pointer;
+    border: none;
+    font-size: var(--font-size-base);
+}
+
+.button img {
+    height: 1.2em;
+    width: auto;
+    margin-right: 5px;
+}
+
+.button.primary {
+    background-color: var(--color-primary);
+    color: var(--color-light-bg);
+}
+
+.button.primary:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.button.secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-light-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.button.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+    background-color: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-dark-bg);
+}
+
+/* Main Content Padding */
 main {
-  font-family: var(--font-family);
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    padding-top: 60px;
+    padding-bottom: var(--spacing-xxl);
 }
 
-/* Header styles*/
+/* Header Styles */
 header {
-  background-color: #2196F3;
-  color: white;
+  background-color: var(--color-dark-bg-alt);
+  color: var(--color-text-light);
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 20px;
-  box-sizing: border-box;
-  position: relative; /* Importante para posicionar el menú */
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: var(--box-shadow-dark);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 60px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--spacing-xs);
 }
 
 .logo img {
-  border-radius: 80px;
-  padding: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 0;
+  object-fit: cover;
+  border: 2px solid var(--color-accent);
+  transition: transform var(--transition-speed) var(--transition-ease);
+}
+
+.logo img:hover {
+  transform: rotate(10deg) scale(1.05);
+}
+
+.logo h1 {
+  font-size: var(--font-size-lg);
+  margin-bottom: 0;
 }
 
 .logo a {
-  color: white;
+  color: var(--color-text-light);
   text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-ease);
 }
 
-.logo ul {
-  list-style: none;
+/* Active Navigation Link Style */
+a.nav-link.active {
+    color: var(--color-accent);
+    text-shadow: 0 0 5px var(--color-accent);
 }
 
+.logo a:hover {
+  color: var(--color-accent);
+}
 
-/* --- Navbar styles --- */
+/* Navbar Styles */
 .navbar {
   display: flex;
   align-items: center;
   margin-left: auto;
+  width: auto;
 }
 
-/* --- Link Styles (ul.nav-links) --- */
 .nav-links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 20px;
+  gap: var(--spacing-lg);
 }
-
 
 .nav-links li a {
-  color: white;
+  color: var(--color-text-light);
   text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  position: relative;
+  transition: color var(--transition-speed) var(--transition-ease);
+  font-weight: var(--font-weight-bold);
 }
 
-/* --- Hamburger Menu Styles (for responsive) --- */
+/* Navigation Underline Animation */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  transition: width var(--transition-speed) var(--transition-ease);
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
+.nav-links li a:hover {
+  color: var(--color-accent);
+}
+
+/* Hamburger Menu Icon Styles */
 .menu-toggle {
   display: none;
 }
 
-/*Hamburguer menu*/
 .hamburger {
-  color: white;
-  font-size: 28px;
+  color: var(--color-accent);
+  font-size: var(--font-size-xl);
   border: 0;
   background-color: transparent;
   cursor: pointer;
-  display: none; /* Hidden by default, shown in media queries */
+  display: none;
   user-select: none;
+  padding: var(--spacing-xs);
+  transition: transform var(--transition-speed) var(--transition-ease);
 }
 
-
-/*Styles of "skill-container"*/
-.skills-container {
-  text-align: center;
-  padding: 20px;
-  background-color: #E3F2FD;
-  margin: 20px;
-  border-radius: 8px;
-}
-
-.skills-img {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-  gap: 20px;
-  padding: 20px;
-  text-align: center;
-  margin: 0 20px 20px 20px;
-  border-radius: 8px;
-}
-
-.icon-card {
-  width: 150px;
-  height: 120px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.icon-card:hover {
+.hamburger:hover {
   transform: scale(1.1);
 }
 
+/* Page Intro Section Styles */
+.page-intro-section {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: linear-gradient(135deg, var(--color-dark-bg-alt), var(--color-dark-bg));
+    border-bottom: 2px solid var(--color-primary);
+    margin-bottom: var(--spacing-lg);
+}
 
-.skills-img img {
-  width: 100px;
+.page-title {
+    font-size: var(--font-size-h1);
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    animation: fadeInDown 1s ease-out forwards;
+}
+
+.page-description {
+    font-size: var(--font-size-lg);
+    color: var(--color-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-out forwards 0.3s;
+    opacity: 0;
+}
+
+/* Skills Section Styles */
+.skills-container {
+    padding: var(--spacing-xl) var(--spacing-md);
+    max-width: 1000px;
+    margin: var(--spacing-lg) auto;
+    background-color: var(--color-dark-bg-alt);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-dark);
+    border: 1px solid var(--color-primary);
+}
+
+.skills-container h2 {
+    text-align: center;
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-h2);
+}
+
+.skills-content {
+    display: flex;
+    flex-direction: row; /* Changed to row for desktop layout */
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    gap: var(--spacing-lg);
+}
+
+.skills-img {
+    flex: 1; /* Allows image section to take available space */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background-color: var(--color-dark-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-secondary);
+    box-shadow: var(--box-shadow-light);
+}
+
+.skills-img figure {
+    margin: 0;
+    display: flex; /* Use flex to center image within figure */
+    justify-content: center;
+    align-items: center;
+}
+
+.skills-img .icon-card {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background-color: var(--color-dark-bg-alt);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    box-shadow: var(--box-shadow-light);
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.skills-img .icon-card:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.7);
 }
 
 .skills-text {
-  font-size: 1.1em;
-  line-height: 1.6;
-  width: fit-content;
-  margin: 0 auto;
-  color: #424242;
-  padding: 0 16px;
-  box-shadow: 4px 10px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 6px;
-  padding: 4%;
-  background-color: white;
+    flex: 1.5; /* Allows text section to take more space */
+    padding: var(--spacing-md);
+    background-color: var(--color-dark-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--color-secondary);
+    box-shadow: var(--box-shadow-light);
+    color: var(--color-secondary);
+    font-size: var(--font-size-base);
+    text-align: left;
 }
 
-
-/* Footer */
-
-.footer-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #0D47A1;
-  padding: 20px;
-  margin-top: 30px;
+/* Global Keyframe Animations */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/*
-Aligns the text within the footer location section so that it is justified.
-*/
-.footer-ubication {
-  text-align: justify;
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/*
-Aligns items within the social media section to the center (although `align-items` only works in flex or grid containers).
-*/
-.footer-social-media {
-  align-items: center;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-/*
-Styles for list items within the footer location section.
-*/
-.footer-ubication li {
-  margin-bottom: 10px;
-  color: white;
-}
-
-/*
-Styles the iframe inside the footer location section to take up the minimum width and height of the content.
-
-*/
-.footer-ubication iframe {
-  width: min-content;
-  height: min-content;
-}
-
-/* Sets the text color for paragraphs and headings within the footer container to white.
-*/
-.footer-container p,
-.footer-container h3 {
-  color: white;
-}
-
-/* Sets the width of images within the social media section.
-*/
-.footer-social-media img {
-  width: 40px;
-}
-
-/* Sets the width and top margin for anchor tags within the social media section.
-*/
-.footer-social-media a {
-  width: 70px;
-  margin-top: 20px;
-}
-
-/* General styles of footer
-
-*/
+/* Footer Styles */
 footer {
-  background-color: #0D47A1;
-  color: white;
-  padding: 40px 20px;
+  background-color: var(--color-dark-bg-alt);
+  color: var(--color-text-light);
+  padding: var(--spacing-xl) var(--spacing-md);
   text-align: center;
-  margin-top: 50px;
+  margin-top: var(--spacing-xxl); /* Consistent with projects.css and index.html */
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* More detailed styling for the footer container, using flexbox for responsiveness.
-
-*/
 .footer-container {
   display: flex;
   flex-wrap: wrap;
@@ -229,206 +413,223 @@ footer {
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 30px;
+  gap: var(--spacing-xl);
 }
 
-/* Styles for the location and social media sections within the footer.
-- `flex: 1`: Allows them to grow and shrink.
-- `min-width`: Ensures a minimum width, preventing them from becoming too narrow.
-- `margin-bottom`: Adds space below each section.
-*/
-.footer-ubication,
+.footer-details,
 .footer-social-media {
   flex: 1;
-  min-width: 280px;
-  margin-bottom: 20px;
+  min-width: 250px;
+  margin-bottom: var(--spacing-md);
+  text-align: left;
 }
 
-/* Styles for paragraphs within the footer location section.
-*/
-.footer-ubication p {
-  margin: 5px 0;
-  font-size: 0.9em;
-  color: white;
+.footer-details p {
+  margin: var(--spacing-xs) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary);
 }
 
-/* Styles for the iframe specifically for responsiveness within the footer location.
-- `width: 100%`, `max-width`: Ensures it scales with its container but doesn't exceed a certain size.
-- `height`, `border-radius`, `margin-bottom`: Sets dimensions, rounds corners, and adds bottom spacing.
-*/
-.footer-ubication iframe {
+.footer-details address {
+    font-style: normal;
+}
+
+/* Map Iframe in Footer Styles */
+.footer-details iframe {
   width: 100%;
   max-width: 400px;
   height: 200px;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--box-shadow-light);
+  border: 1px solid var(--color-primary);
 }
 
-/* Styles for the social media section header.
-*/
+/* Footer Social Media Styles */
 .footer-social-media h3 {
-  margin-bottom: 15px;
-  font-size: 1.2em;
-  color: white;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  text-align: left;
 }
 
-/* Styles for individual social media links.
-- `display: inline-block`: Allows you to set width/height and horizontal margins.
-*/
+.social-links-list {
+    list-style: none;
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-start;
+}
+
 .social-links {
-  display: inline-block;
-  margin: 0 10px;
+    display: inline-block;
 }
 
-/* Styles for social media icons (images).
-- `width`, `height`: Sets the dimensions.
-- `transition`: Adds a smooth transition for transformation changes.
-*/
 .social-links img {
-  width: 35px;
-  height: 35px;
-  transition: transform 0.3s ease;
-}
-
-/* Adds a slight scaling effect to social media icons when hovered over.
-*/
-.social-links img:hover {
-  transform: scale(1.1);
-}
-
-
-/* Tablet (768px) */
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-    z-index: 200; 
-  }
-
-
-  .navbar {
-    display: none; 
-    flex-direction: column;
-    width: 100%;
-    position: absolute; 
-    top: 100%; 
-    left: 0; 
-    right: auto;
-    background-color: #2196F3;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-  }
-
- 
-  .menu-toggle:checked ~ .navbar {
-    display: flex; 
-  }
-
-
-  .navbar .nav-links {
-    flex-direction: column;
-    width: 100%;
-    display: flex; 
-  }
-
-  .nav-links li {
-    text-align: center;
-    margin: 10px 0;
-  }
-
-  /* Responsive styles for skills page content */
-  .skills-img {
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 15px;
-    margin: 0 10px 10px 10px;
-    padding: 10px;
-  }
-
-  .icon-card {
-    width: 100px; 
-    height: 90px;
-  }
-
-  .skills-text {
-    font-size: 1em;
-    padding: 3%;
-    margin: 10px;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-ubication,
-  .footer-social-media {
-    min-width: unset;
-    width: 100%;
-    text-align: center;
-  }
-
-  .footer-ubication p {
-    text-align: center;
-  }
-}
-
-/* Mobile (480px) */
-@media (max-width: 480px) {
-  header {
-    padding: 0 10px;
-  }
-
-  .logo img {
     width: 40px;
     height: 40px;
-  }
-
-  .logo h1 {
-    font-size: 1.2em;
-  }
-
-  .hamburger {
-    font-size: 24px;
-  }
-
-  /* Responsive styles for skills page content */
-  .skills-img {
-    grid-template-columns: 1fr; 
-    gap: 10px;
+    transition: transform var(--transition-speed) var(--transition-ease),
+                filter var(--transition-speed) var(--transition-ease);
+    border-radius: 50%;
     padding: 5px;
-    margin: 0 5px 5px 5px;
-  }
+    background-color: var(--color-dark-bg);
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
 
-  .icon-card {
-    width: 80px; 
-    height: 70px;
-  }
+.social-links img:hover {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 10px var(--color-accent));
+}
 
-  .skills-container {
-    padding: 10px;
-    margin: 10px;
-  }
+/* Media Queries */
 
-  .skills-text {
-    padding: 2%;
-    font-size: 0.9em;
-  }
+/* Tablet (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Hamburger Menu for Tablet */
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
 
-  footer {
-    padding: 20px 10px;
-    margin-top: 30px;
-  }
+    /* Navigation for Tablet */
+    .navbar {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        background-color: var(--color-dark-bg-alt);
+        padding: var(--spacing-md) var(--spacing-lg);
+        box-shadow: var(--box-shadow-dark);
+        z-index: 999;
+        transform: translateY(-100%);
+        transition: transform var(--transition-speed) var(--transition-ease);
+    }
 
-  .footer-ubication p {
-    font-size: 0.8em;
-  }
+    .menu-toggle:checked ~ .navbar {
+        display: flex;
+        transform: translateY(0);
+    }
 
-  .footer-social-media h3 {
-    font-size: 1em;
-  }
+    .navbar .nav-links {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
 
-  .social-links img {
-    width: 30px;
-    height: 30px;
-  }
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin: var(--spacing-xs) 0;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: var(--spacing-sm);
+        color: var(--color-text-light);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Page Intro for Tablet */
+    .page-title {
+        font-size: var(--font-size-h2);
+    }
+    .page-description {
+        font-size: var(--font-size-base);
+    }
+
+    /* Skills Section for Tablet */
+    .skills-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skills-img {
+        width: 100%;
+    }
+
+    /* Footer for Tablet */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+
+    .footer-details,
+    .footer-social-media {
+        min-width: unset;
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-details iframe {
+        max-width: 100%;
+    }
+    .social-links-list {
+        justify-content: center;
+    }
+}
+
+/* Mobile Media Queries */
+@media (max-width: 480px) {
+    /* Header for Mobile */
+    header {
+        padding: 0 var(--spacing-sm);
+        height: 50px;
+    }
+
+    .logo img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .logo h1 {
+        font-size: var(--font-size-base);
+    }
+
+    .hamburger {
+        font-size: var(--font-size-xl);
+    }
+
+    /* Page Intro for Mobile */
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .page-description {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Skills Section for Mobile */
+    .skills-img .icon-card {
+        width: 60px;
+        height: 60px;
+    }
+    .skills-text {
+        font-size: var(--font-size-sm);
+    }
+
+    /* Footer for Mobile */
+    footer {
+        padding: var(--spacing-md) var(--spacing-sm);
+        margin-top: var(--spacing-md);
+    }
+
+    .footer-details p {
+        font-size: 0.75em;
+    }
+
+    .footer-social-media h3 {
+        font-size: var(--font-size-base);
+    }
+
+    .social-links img {
+        width: 30px;
+        height: 30px;
+    }
 }

@@ -1,258 +1,637 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap");
+/* Google Fonts Import */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,700&family=Space+Mono&display=swap");
 
+/* Global CSS Variables */
 :root {
-  /* Default font family for the entire document */
-  --font-family: "Roboto", sans-serif;
-  --normal-font: 400;
-  --bold-font: 700;
-  --line-height: 20px;
+  /* Fonts */
+  --font-body: 'Roboto', sans-serif;
+  --font-heading: 'Roboto', sans-serif;
+  --font-code: 'Space Mono', monospace;
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 900;
+
+  /* Colors - Tech Palette */
+  --color-primary: #007bff;
+  --color-secondary: #6c757d;
+  --color-accent: #00f0ff;
+  --color-dark-bg: #1a1a2e;
+  --color-dark-bg-alt: #16213e;
+  --color-text-light: #e0e0e0;
+  --color-text-dark: #333;
+  --color-success: #28a745;
+  --color-error: #dc3545;
+  --color-light-bg: #ffffff;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Font Sizes */
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-h1: 2.5rem;
+  --font-size-h2: 2rem;
+  --font-size-h3: 1.75rem;
+
+  /* Borders & Shadows */
+  --border-radius: 8px;
+  --box-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-dark: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+  --transition-ease: ease-in-out;
 }
 
+/* Base Global Reset & Body Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: var(--font-family);
+  font-family: var(--font-body);
+  line-height: 1.6;
 }
 
-/*Styles for main*/
+body {
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-light);
+  overflow-x: hidden;
+}
+
+/* Heading Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+}
+
+h1 { font-size: var(--font-size-h1); }
+h2 { font-size: var(--font-size-h2); }
+h3 { font-size: var(--font-size-h3); }
+
+/* General Link Styles */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-ease);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+/* Button Styles */
+.button {
+    display: inline-block;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-weight: var(--font-weight-bold);
+    transition: background-color var(--transition-speed) var(--transition-ease),
+                transform var(--transition-speed) var(--transition-ease),
+                box-shadow var(--transition-speed) var(--transition-ease);
+    cursor: pointer;
+    border: none;
+    font-size: var(--font-size-base);
+}
+
+.button.primary {
+    background-color: var(--color-primary);
+    color: var(--color-light-bg);
+}
+
+.button.primary:hover {
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.button.secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-light-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Main Content Padding */
 main {
-  font-family: var(--font-family);
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  padding-top: 60px;
 }
 
-/* Header styles*/
+/* Header Styles */
 header {
-  background-color: #2196F3;
-  color: white;
+  background-color: var(--color-dark-bg-alt);
+  color: var(--color-text-light);
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 0 20px;
-  box-sizing: border-box;
-  position: relative; 
+  padding: var(--spacing-sm) var(--spacing-md);
+  box-shadow: var(--box-shadow-dark);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 60px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--spacing-xs);
 }
 
 .logo img {
-  border-radius: 80px;
-  padding: 6px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 0;
+  object-fit: cover;
+  border: 2px solid var(--color-accent);
+  transition: transform var(--transition-speed) var(--transition-ease);
+}
+
+.logo img:hover {
+  transform: rotate(10deg) scale(1.05);
+}
+
+.logo h1 {
+  font-size: var(--font-size-lg);
+  margin-bottom: 0;
 }
 
 .logo a {
-  color: white;
+  color: var(--color-text-light);
   text-decoration: none;
+  transition: color var(--transition-speed) var(--transition-ease);
 }
 
-.logo ul {
-  list-style: none;
+.logo a:hover {
+  color: var(--color-accent);
 }
 
-
-/* --- Navbar styles --- */
+/* Navbar Styles */
 .navbar {
-  display: flex; 
+  display: flex;
   align-items: center;
   margin-left: auto;
   width: auto;
 }
 
-/* --- Link Styles (ul.nav-links) --- */
 .nav-links {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 20px;
+  gap: var(--spacing-lg);
 }
-
 
 .nav-links li a {
-  color: white;
+  color: var(--color-text-light);
   text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  position: relative;
+  transition: color var(--transition-speed) var(--transition-ease);
+  font-weight: var(--font-weight-bold);
 }
 
-/* --- Hamburger Menu Styles (for responsive) --- */
+/* Navigation Underline Animation */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  transition: width var(--transition-speed) var(--transition-ease);
+}
 
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links li a:hover {
+  color: var(--color-accent);
+}
+
+/* Hamburger Menu Icon Styles */
 .menu-toggle {
   display: none;
 }
 
-/* Hamburguer icon (label for the checkbox) */
 .hamburger {
-  color: white;
-  font-size: 28px;
+  color: var(--color-accent);
+  font-size: var(--font-size-xl);
   border: 0;
   background-color: transparent;
   cursor: pointer;
-  display: none; 
+  display: none;
   user-select: none;
+  padding: var(--spacing-xs);
+  transition: transform var(--transition-speed) var(--transition-ease);
 }
 
-/*About me*/
-/*Text styles*/
+.hamburger:hover {
+  transform: scale(1.1);
+}
+
+/* Header Social Media Icons */
+.header-social-icons {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-left: var(--spacing-md);
+}
+
+.header-social-icons a {
+    color: var(--color-text-light);
+    font-size: var(--font-size-lg);
+    transition: color var(--transition-speed) var(--transition-ease), transform var(--transition-speed) var(--transition-ease);
+}
+
+.header-social-icons a:hover {
+    color: var(--color-accent);
+    transform: translateY(-3px);
+}
+
+/* Hero Section Styles */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 60px);
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, var(--color-dark-bg), var(--color-dark-bg-alt));
+  position: relative;
+  overflow: hidden;
+  padding-top: 60px;
+}
+
+/* Hero Section Background Animation */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 20%, rgba(0, 240, 255, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 90% 80%, rgba(0, 123, 255, 0.1) 0%, transparent 50%);
+  animation: backgroundPulse 15s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+/* Hero Section Profile Image */
+.hero-section .profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--color-accent);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  margin-bottom: var(--spacing-md);
+  animation: zoomIn 1s ease-out forwards;
+}
+
+/* Hero Section Main Title */
+.hero-section h1 {
+  font-size: var(--font-size-h1);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+  animation: fadeInDown 1s ease-out forwards;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Hero Section Highlighted Title Part */
+.hero-section h1 .highlight {
+  color: var(--color-accent);
+  text-shadow: 0 0 15px var(--color-accent);
+}
+
+/* Hero Section Tagline */
+.hero-section .tagline {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-light);
+  margin-bottom: var(--spacing-sm);
+  animation: fadeInUp 1s ease-out forwards 0.3s;
+  opacity: 0;
+  font-weight: var(--font-weight-normal);
+}
+
+/* Hero Section Roles/Description */
+.hero-section .roles {
+  font-family: var(--font-code);
+  font-size: var(--font-size-lg);
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-xl);
+  animation: fadeIn 1s ease-out forwards 0.6s;
+  opacity: 0;
+  max-width: 900px;
+  line-height: 1.5;
+}
+
+/* Hero Section Featured Post Heading */
+.featured-post-heading {
+    font-size: var(--font-size-h2);
+    color: var(--color-accent);
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+    animation: fadeIn 1s ease-out forwards 0.9s;
+    opacity: 0;
+}
+
+/* Keyframe Animations */
+@keyframes backgroundPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* About Me Section Styles */
 .about-me {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  gap: 20px;
-  padding: 20px;
-  background-color: #E3F2FD;
-  margin: 20px;
-  border-radius: 8px;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  background-color: var(--color-dark-bg);
+  margin: var(--spacing-lg) auto;
+  max-width: 1200px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-dark);
+  position: relative;
+  overflow: hidden;
 }
 
+/* About Me Fade-in Animation (Controlled by JS) */
+.about-me.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+/* About Me Text Content Styles */
 .about-me-text {
-  box-shadow: 4px 10px 6px rgba(0, 0, 0, 0.1);
-  padding: 4%;
-  border-radius: 8px;
+  flex: 2;
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  background-color: var(--color-dark-bg-alt);
+  box-shadow: var(--box-shadow-light);
   height: fit-content;
-  flex-grow: 1;
-  background-color: white;
+  color: var(--color-text-light);
+}
+
+.about-me-text h2 {
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-h2);
 }
 
 .about-me-text p {
-  padding: 15px;
+  padding: 0;
+  margin-bottom: var(--spacing-sm);
   text-align: left;
-  color: #424242;
+  color: var(--color-secondary);
+  font-size: var(--font-size-base);
 }
 
-/*Image styles*/
+.about-me-text p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* About Me CV Button Styles */
+.about-me-text .button {
+    margin-top: var(--spacing-md);
+    background-color: var(--color-primary);
+    color: var(--color-light-bg);
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.about-me-text .button:hover {
+    background-color: var(--color-accent);
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.4);
+}
+
+/* About Me Image Styles */
+.about-me figure {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .about-me img {
-  box-shadow: 4px 10px 6px rgba(0, 0, 0, 0.1);
-  padding: 4%;
-  border-radius: 8px;
-  height: fit-content;
   width: 100%;
-  flex-shrink: 0;
-  background-color: white;
+  max-width: 300px;
+  height: auto;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-dark);
+  object-fit: cover;
+  background-color: var(--color-dark-bg-alt);
+  padding: var(--spacing-xs);
+  border: 1px solid var(--color-primary);
+  transition: transform 0.3s ease-in-out;
 }
 
-/*Form styles*/
+.about-me img:hover {
+  transform: scale(1.02);
+}
 
-/* General styles of formulary*/
+/* Contact Form Styles */
+#contact {
+  padding: var(--spacing-xl) var(--spacing-md);
+  margin: var(--spacing-lg) auto;
+  max-width: 800px;
+  text-align: center;
+}
+
+#contact h2 {
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-lg);
+  font-size: var(--font-size-h2);
+}
+
 form {
-  background-color: #BBDEFB;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  max-width: 450px;
-  margin: 30px auto;
-  font-family: Arial, sans-serif;
+  background-color: var(--color-dark-bg-alt);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-dark);
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
 }
 
-/* Labels styles */
+form p {
+    text-align: left;
+    margin-bottom: var(--spacing-xs);
+}
+
 label {
   display: block;
-  margin-bottom: 8px;
-  color: #1976D2;
-  font-weight: bold;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  text-align: left;
 }
 
-/* Styles for text input fields, email, and the text area */
 input[type="text"],
 input[type="email"],
 textarea {
-  width: calc(100% - 16px);
-  padding: 8px;
-  margin-bottom: 15px;
-  border: 1px solid #90CAF9;
-  border-radius: 4px;
-  font-size: 1rem;
-  padding: 10px;
-}
-
-/* Styles for the submit button */
-input[type="submit"] {
-  background-color: #1976D2;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  cursor: pointer;
   width: 100%;
+  padding: var(--spacing-sm);
+  margin-bottom: 0;
+  border: 1px solid var(--color-secondary);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-base);
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-light);
+  transition: border-color var(--transition-speed) var(--transition-ease),
+              box-shadow var(--transition-speed) var(--transition-ease);
 }
 
-/* Button Hover Effect */
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.2);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Form Submit Button Styles */
+input[type="submit"] {
+    margin-top: var(--spacing-sm);
+    background-color: var(--color-primary);
+    color: var(--color-light-bg);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-lg);
+    cursor: pointer;
+    width: 100%;
+    transition: background-color var(--transition-speed) var(--transition-ease),
+                transform var(--transition-speed) var(--transition-ease);
+}
+
 input[type="submit"]:hover {
-  background-color: #0D47A1;
+    background-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
 }
 
-/* Footer */
+.or-contact-direct {
+    margin-top: var(--spacing-md);
+    color: var(--color-secondary);
+    font-size: var(--font-size-sm);
+}
 
-/* General styles of footer
+/* Google Maps Iframe Section Styles */
+.section-padding {
+    padding: var(--spacing-xl) var(--spacing-md);
+    margin: 0 auto;
+    max-width: 1200px;
+}
 
-*/
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.section-title {
+    color: var(--color-accent);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+    font-size: var(--font-size-h2);
+}
+
+.section-description {
+    color: var(--color-secondary);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-lg);
+}
+
+.map-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background-color: var(--color-dark-bg-alt);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-dark);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Footer Styles */
 footer {
-  background-color: #0D47A1;
-  color: white;
-  padding: 40px 20px;
+  background-color: var(--color-dark-bg-alt);
+  color: var(--color-text-light);
+  padding: var(--spacing-xl) var(--spacing-md);
   text-align: center;
-  margin-top: 50px;
+  margin-top: var(--spacing-xl);
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/*
-Aligns the text within the footer location section so that it is justified.
-*/
-.footer-ubication {
-  text-align: justify;
-}
-
-/*
-Aligns items within the social media section to the center (although `align-items` only works in flex or grid containers).
-*/
-.footer-social-media {
-  align-items: center;
-}
-
-/*
-Styles for list items within the footer location section.
-*/
-.footer-ubication li {
-  margin-bottom: 10px;
-  color: white;
-}
-
-/*
-Styles the iframe inside the footer location section to take up the minimum width and height of the content.
-
-*/
-.footer-ubication iframe {
-  width: min-content;
-  height: min-content;
-}
-
-/* Sets the text color for paragraphs and headings within the footer container to white.
-*/
-.footer-container p,
-.footer-container h3 {
-  color: white;
-}
-
-/* Sets the width of images within the social media section.
-*/
-.footer-social-media img {
-  width: 40px;
-}
-
-/* Sets the width and top margin for anchor tags within the social media section.
-*/
-.footer-social-media a {
-  width: 70px;
-  margin-top: 20px;
-}
-
-
-/* More detailed styling for the footer container, using flexbox for responsiveness.
-*/
 .footer-container {
   display: flex;
   flex-wrap: wrap;
@@ -260,203 +639,295 @@ Styles the iframe inside the footer location section to take up the minimum widt
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
-  gap: 30px;
+  gap: var(--spacing-xl);
 }
 
-/* Styles for the location and social media sections within the footer.
-- `flex: 1`: Allows them to grow and shrink.
-- `min-width`: Ensures a minimum width, preventing them from becoming too narrow.
-- `margin-bottom`: Adds space below each section.
-*/
-.footer-ubication,
+.footer-details,
 .footer-social-media {
   flex: 1;
-  min-width: 280px;
-  margin-bottom: 20px;
+  min-width: 250px;
+  margin-bottom: var(--spacing-md);
+  text-align: left;
 }
 
-/* Styles for paragraphs within the footer location section.
-*/
-.footer-ubication p {
-  margin: 5px 0;
-  font-size: 0.9em;
-  color: white;
+.footer-details p {
+  margin: var(--spacing-xs) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-secondary);
 }
 
-/* Styles for the iframe specifically for responsiveness within the footer location.
-- `width: 100%`, `max-width`: Ensures it scales with its container but doesn't exceed a certain size.
-- `height`, `border-radius`, `margin-bottom`: Sets dimensions, rounds corners, and adds bottom spacing.
-*/
-.footer-ubication iframe {
+.footer-details address {
+    font-style: normal;
+}
+
+/* Footer Map Iframe Styles */
+.footer-details iframe {
   width: 100%;
   max-width: 400px;
   height: 200px;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  border-radius: var(--border-radius);
+  margin-bottom: var(--spacing-md);
+  box-shadow: var(--box-shadow-light);
+  border: 1px solid var(--color-primary);
 }
 
-/* Styles for the social media section header.
-*/
+/* Footer Social Media Styles */
 .footer-social-media h3 {
-  margin-bottom: 15px;
-  font-size: 1.2em;
-  color: white;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  text-align: left;
 }
 
-/* Styles for individual social media links.
-- `display: inline-block`: Allows you to set width/height and horizontal margins.
-*/
 .social-links {
   display: inline-block;
-  margin: 0 10px;
+  margin: 0 var(--spacing-xs);
 }
 
-/* Styles for social media icons (images).
-- `width`, `height`: Sets the dimensions.
-- `transition`: Adds a smooth transition for transformation changes.
-*/
 .social-links img {
-  width: 35px;
-  height: 35px;
-  transition: transform 0.3s ease;
+  width: 40px;
+  height: 40px;
+  transition: transform var(--transition-speed) var(--transition-ease),
+              filter var(--transition-speed) var(--transition-ease);
+  border-radius: 50%;
+  padding: 5px;
+  background-color: var(--color-dark-bg);
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
 
-/* Adds a slight scaling effect to social media icons when hovered over.
-*/
 .social-links img:hover {
-  transform: scale(1.1);
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 0 8px var(--color-accent));
 }
-
 
 /* Media Queries */
 
-/* Tablet (768px) */
+/* Tablet (max-width: 768px) */
 @media (max-width: 768px) {
-
+  /* Hamburger Menu for Tablet */
   .hamburger {
     display: block;
-    z-index: 200; 
+    z-index: 1001;
   }
 
+  /* Navigation for Tablet */
   .navbar {
-    display: none; 
-    flex-direction: column; 
+    display: none;
+    flex-direction: column;
     width: 100%;
-    position: absolute; 
-    top: 100%; 
-    left: 0; 
-    right: auto;
-    background-color: #2196F3;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 100;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    background-color: var(--color-dark-bg-alt);
+    padding: var(--spacing-md) var(--spacing-lg);
+    box-shadow: var(--box-shadow-dark);
+    z-index: 999;
+    transform: translateY(-100%);
+    transition: transform var(--transition-speed) var(--transition-ease);
   }
-
 
   .menu-toggle:checked ~ .navbar {
     display: flex;
+    transform: translateY(0);
   }
 
   .navbar .nav-links {
     flex-direction: column;
     width: 100%;
-    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
   }
 
   .nav-links li {
+    width: 100%;
     text-align: center;
-    margin: 10px 0;
+    margin: var(--spacing-xs) 0;
   }
 
+  .nav-links li a {
+    display: block;
+    padding: var(--spacing-sm);
+    color: var(--color-text-light);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: none;
+  }
+
+  /* Header Social Icons for Tablet */
+  .header-social-icons {
+      display: none;
+  }
+
+  /* Hero Section for Tablet */
+  .hero-section h1 {
+      font-size: var(--font-size-h2);
+  }
+
+  .hero-section .tagline {
+      font-size: var(--font-size-lg);
+  }
+
+  .hero-section .roles {
+      font-size: var(--font-size-base);
+  }
+
+  /* About Me Section for Tablet */
   .about-me {
     flex-direction: column;
     text-align: center;
+    padding: var(--spacing-lg);
+    margin: var(--spacing-md) auto;
   }
 
-  .about-me-text,
-  .about-me img {
+  .about-me-text {
     width: 100%;
+    text-align: center;
+    padding: var(--spacing-md);
   }
 
+  .about-me-text p {
+    text-align: center;
+  }
+
+  .about-me figure {
+    order: -1;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .about-me img {
+    max-width: 250px;
+  }
+
+  /* Contact Form for Tablet */
+  #contact h2 {
+      font-size: var(--font-size-lg);
+  }
+
+  /* Footer for Tablet */
   .footer-container {
     flex-direction: column;
     align-items: center;
+    gap: var(--spacing-md);
   }
 
-  .footer-ubication,
+  .footer-details,
   .footer-social-media {
     min-width: unset;
     width: 100%;
     text-align: center;
   }
 
-  .footer-ubication p {
-    text-align: center;
+  .footer-details iframe {
+    max-width: 100%;
   }
 }
 
-/* Mobile (480px) */
+/* Mobile (max-width: 480px) */
 @media (max-width: 480px) {
+  /* Header for Mobile */
   header {
-    padding: 0 10px;
+    padding: 0 var(--spacing-sm);
+    height: 50px;
   }
 
   .logo img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
   }
 
   .logo h1 {
-    font-size: 1.2em;
+    font-size: var(--font-size-base);
   }
 
   .hamburger {
-    font-size: 24px;
+    font-size: var(--font-size-xl);
   }
 
+  /* Hero Section for Mobile */
+  .hero-section {
+    padding: var(--spacing-lg);
+    min-height: calc(100vh - 50px);
+    padding-top: 50px;
+  }
+
+  .hero-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-section .tagline {
+    font-size: var(--font-size-base);
+  }
+
+  .hero-section .roles {
+    font-size: var(--font-size-sm);
+  }
+
+  /* Hero Actions for Mobile */
+  .hero-actions {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    width: 100%;
+  }
+
+  .button {
+      width: 100%;
+  }
+
+  /* About Me Section for Mobile */
   .about-me {
-    padding: 10px;
-    margin: 10px;
+    padding: var(--spacing-md);
+    margin: var(--spacing-md) auto;
+  }
+
+  .about-me-text,
+  .about-me img {
+    padding: var(--spacing-sm);
+  }
+
+  .about-me-text h2 {
+    font-size: var(--font-size-lg);
   }
 
   .about-me-text p {
-    padding: 10px;
-    font-size: 0.9em;
+    font-size: var(--font-size-sm);
   }
 
+  /* Contact Form for Mobile */
   form {
-    padding: 15px;
-    max-width: 300px;
+    padding: var(--spacing-md);
+    max-width: 90%;
   }
 
   label {
-    font-size: 0.9em;
+    font-size: var(--font-size-sm);
   }
 
   input[type="text"],
   input[type="email"],
   textarea {
-    width: calc(100% - 10px);
-    padding: 5px;
-    margin-bottom: 10px;
+    padding: var(--spacing-xs);
+    font-size: var(--font-size-sm);
   }
 
   input[type="submit"] {
-    padding: 8px 10px;
-    font-size: 1em;
+    padding: var(--spacing-sm);
+    font-size: var(--font-size-base);
   }
 
+  /* Footer for Mobile */
   footer {
-    padding: 20px 10px;
-    margin-top: 30px;
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin-top: var(--spacing-md);
   }
 
-  .footer-ubication p {
-    font-size: 0.8em;
+  .footer-details p {
+    font-size: 0.75em;
   }
 
   .footer-social-media h3 {
-    font-size: 1em;
+    font-size: var(--font-size-base);
   }
 
   .social-links img {

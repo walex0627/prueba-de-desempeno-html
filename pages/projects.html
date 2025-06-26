@@ -1,141 +1,201 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width , initial-scale=1.0">
-        <title>Portafolio de Walter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portafolio de Walter - Proyectos</title>
         <meta name="Author" content="Walter Gomez">
+        <meta name="description" content="Explora los proyectos de desarrollo de software de Walter Gómez, incluyendo descripciones, tecnologías usadas y enlaces a demostraciones y repositorios.">
+        <meta name="keywords" content="proyectos de programación, portafolio de desarrollo, NeoTax, Fiscovision AI, Midnight Club, HTML, CSS, JavaScript, Git">
         <link rel="stylesheet" href="../assets/styles/style_projects.css">
+        <!-- Optional: If you want to use Font Awesome icons for your social media in the header, uncomment the following line -->
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> -->
     </head>
     <body>
         <header>
             <div class="logo">
-                <img src="../assets/images/icon/7607634fc5b9cc921610bc49ea88efbe.jpg" alt="Zoro icon" width="15%">
+                <img src="../assets/images/icon/7607634fc5b9cc921610bc49ea88efbe.jpg" alt="Logo de Walter">
                 <h1><a href="../index.html" class="nav-link">Walter Gomez</a></h1>
             </div>
-            <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="hamburger">☰</label>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle" aria-controls="main-navigation">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle navigation menu">☰</label>
             
-            <nav class="navbar">
+            <nav class="navbar" id="main-navigation">
                 <ul class="nav-links">
-                    <li><a href="./skills.html">Skills</a></li>
-                    <li><a href="./projects.html">Projects</a></li>
+                    <li><a href="./skills.html" class="nav-link">Skills</a></li>
+                    <li><a href="./projects.html" class="nav-link active">Projects</a></li>
+                    <li><a href="../index.html#about-me-section" class="nav-link">About Me</a></li>
+                    <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
                 </ul>
+                <!-- Optional: Social media icons in the header -->
+                <!-- <div class="header-social-icons">
+                    <a href="URL_TWITTER" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                    <a href="URL_LINKEDIN" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="URL_GITHUB" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                </div> -->
             </nav>
         </header>
-        <main>
-            <h2>My projects</h2>
-            
-            <article class="projects-title">
-                <h3>Neotax</h3>
-                <section class="Neotax-ss">
-                    <figure>
-                        <img src="../assets/images/image/projects-ss/Neotax/NeoTax_project.png" alt="Screenshot of NeoTax application home page">
-                        <figcaption>NeoTax: Home Page</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="../assets/images/image/projects-ss/Neotax/NeoTax_generateinvoice.png" alt="Screenshot of NeoTax generate invoice form">
-                        <figcaption>NeoTax: Invoice Generation</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="../assets/images/image/projects-ss/Neotax/NeoTax_historyofinvoice.png" alt="Screenshot of NeoTax invoice history">
-                        <figcaption>NeoTax: Invoice History</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="../assets/images/image/projects-ss/Neotax/NeoTax_addenterprises.png" alt="Screenshot of NeoTax add enterprises form">
-                        <figcaption>NeoTax: Add Enterprises</figcaption>
-                    </figure>
-                </section>
-                <section class="projects-descriptions">
-                    <h4>Description</h4> <p>
-                        NeoTax is an intuitive and visually appealing web-based accounting management system prototype, developed using HTML5, CSS3, and vanilla JavaScript. Aimed at accountants, accounting assistants, and entrepreneurs in Colombia, it offers role-based authentication, company management, automatic invoice generation with VAT, withholding, and ICA calculations (in accordance with Colombian regulations), and an organized history. It leverages localStorage for offline data persistence and is fully responsive. It's important to note that it requires manual tariff updates and doesn't replace professional backend systems.   
-                    </p>
-                </section>
-                <h3>Technologies used</h3>
-                <section class="technologies-used">
-                    <figure><img src="../assets/images/icon/html5.png" alt="HTML5 icon" class="icon-card"></figure>
-                    <figure><img src="../assets/images/icon/css-3.png" alt="CSS3 icon" class="icon-card"></figure>
-                    <figure><img src="../assets/images/icon/git.png" alt="Git icon" class="icon-card"></figure>
-                </section>
-                <section class="view-links">
-                    <h4>To see the project click on the logo of app and you want to see the repository, click on the Github logo </h4>
-                    <figure class="view-links">
-                        <a href="https://walex0627.github.io/proyecto-reto-corte-3/" target="_blank"><img src="../assets/images/icon/Neotax-logo.jpg" alt="NeoTax logo" class="icon-card"></a>
-                        <a href="https://github.com/walex0627/proyecto-reto-corte-3" target="_blank"><img src="../assets/images/icon/github_icon.png" alt="GitHub logo" class="icon-card"></a>
-                    </figure>   
-                </section>
-            </article>
 
-            <article class="projects-title">
-                <h3>Fiscovision IA</h3>
-                <section class="Fiscovision-ss">
-                    <figure><img src="../assets/images/image/projects-ss/Fiscovision/home-ss.png" alt="Screenshot of Fiscovision AI home page"><figcaption>Fiscovision AI: Home Page</figcaption></figure>
-                    <figure><img src="../assets/images/image/projects-ss/Fiscovision/asistant-ss.png" alt="Screenshot of Fiscovision AI assistant"><figcaption>Fiscovision AI: Assistant</figcaption></figure>
-                    <figure><img src="../assets/images/image/projects-ss/Fiscovision/calendary-ss.png" alt="Screenshot of Fiscovision AI calendar"><figcaption>Fiscovision AI: Calendar</figcaption></figure>
-                    <figure><img src="../assets/images/image/projects-ss/Fiscovision/integration-ss.png" alt="Screenshot of Fiscovision AI integrations"><figcaption>Fiscovision AI: Integrations</figcaption></figure>
-                    <figure><img src="../assets/images/image/projects-ss/Fiscovision/predictor-ss.png" alt="Screenshot of Fiscovision AI predictor"><figcaption>Fiscovision AI: Predictor</figcaption></figure>
-                </section>
-                <section class="projects-descriptions">
-                    <h4>Description</h4> <p>
-                        FISCOVISION AI is a smart web platform designed to streamline tax management for accountants, assistants, and entrepreneurs, especially in Colombia. It offers a central hub for tax obligations, including a dynamic calendar for deadlines, an AI assistant for quick tax queries, and simulators for penalties and risk prediction. By automating calculations and providing real-time insights, the system significantly boosts efficiency, ensures better compliance, and empowers users to make more informed financial decisions, ultimately transforming public accounting into a more proactive and error-resistant practice.                    
-                    </p>
-                </section>
-                <h3>Technologies used</h3>
-                <section class="technologies-used">
-                    <figure><img src="../assets/images/icon/html5.png" alt="HTML5 icon" class="icon-card"></figure>
-                    <figure><img src="../assets/images/icon/css-3.png" alt="CSS3 icon" class="icon-card"></figure>
-                    <figure><img src="../assets/images/icon/git.png" alt="Git icon" class="icon-card"></figure>
-                </section>
-                <section class="view-links">
-                    <h4>To see the project click on the logo of app and you want to see the repository, click on the Github logo </h4>
-                    <figure class="view-links">
-                        <a href="https://walex0627.github.io/fiscovision/" target="_blank"><img src="../assets/images/icon/fiscovision-logo.jpg" alt="Fiscovision AI logo" class="icon-card"></a>
-                        <a href="https://github.com/walex0627/fiscovision" target="_blank"><img src="../assets/images/icon/github_icon.png" alt="GitHub logo" class="icon-card"></a>
-                    </figure> 
-                </section>
-            </article>
-            
-            <article class="projects-title">
-                <h3>Midnigth club</h3>
-                <section class="Midnigth-club-ss">
-                    <figure><img src="../assets/images/image/projects-ss/Midnigth club/Captura de pantalla 2025-06-09 112949.png" alt="Screenshot of Midnight Club game screen"><figcaption>Midnight Club: Screenshot 1</figcaption></figure>
-                    <figure><img src="../assets/images/image/projects-ss/Midnigth club/Captura de pantalla 2025-06-09 113037.png" alt="Screenshot of Midnight Club race"><figcaption>Midnight Club: Screenshot 2</figcaption></figure>
-                    <figure><img src="../assets/images/image/projects-ss/Midnigth club/Captura de pantalla 2025-06-09 113058.png" alt="Screenshot of Midnight Club car selection"><figcaption>Midnight Club: Screenshot 3</figcaption></figure>
-                </section>
-                <section class="projects-descriptions">
-                    <h4>Description</h4> <p>
-                        The Midnight Club (also known as Mid Night Club) was an infamous, illicit street racing gang that operated on Japan's Shuto Expressway, particularly the Bayshore Route (Wangan), from the late 1980s until 1999. Known for their extreme speeds, often exceeding 300 km/h (186 mph), and highly modified cars, they adhered to a strict code of conduct that prioritized safety and respect among members and other drivers. Despite their dangerous activities, they gained a legendary status in the automotive world due to their commitment to high performance and the mystique surrounding their secretive operations. The club disbanded voluntarily after an accident involving a biker gang, deciding that the risks to the public had become too great.
-                    </p>
-                </section>
-                <h3>Technologies used</h3>
-                <section class="technologies-used">
-                    <figure><img src="../assets/images/icon/html5.png" alt="HTML5 icon" class="icon-card"></figure>
-                    <figure><img src="../assets/images/icon/css-3.png" alt="CSS3 icon" class="icon-card"></figure>
-                    <figure><img src="../assets/images/icon/git.png" alt="Git icon" class="icon-card"></figure>
-                </section>
-                <section class="view-links">
-                    <figure class="view-links">
-                        <img src="../assets/images/image/projects-ss/Midnigth club/muy-pronto.png" alt="Coming soon image">
-                    </figure> 
-                </section>
-            </article>
+        <main>
+            <section class="page-intro-section">
+                <h2 class="page-title">My Projects</h2>
+                <p class="page-description">Explora algunos de los proyectos en los que he trabajado, mostrando mis habilidades y pasión por el desarrollo.</p>
+            </section>
+
+            <section class="projects-grid section-padding">
+                <!-- Project 1: Neotax -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Neotax</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-screenshots Neotax-ss">
+                            <figure><img src="../assets/images/image/projects-ss/Neotax/NeoTax_project.png" alt="Screenshot of NeoTax application home page" loading="lazy"></figure>
+                            <figure><img src="../assets/images/image/projects-ss/Neotax/NeoTax_generateinvoice.png" alt="Screenshot of NeoTax generate invoice form" loading="lazy"></figure>
+                            <figure><img src="../assets/images/image/projects-ss/Neotax/NeoTax_historyofinvoice.png" alt="Screenshot of NeoTax invoice history" loading="lazy"></figure>
+                            <figure><img src="../assets/images/image/projects-ss/Neotax/NeoTax_addenterprises.png" alt="Screenshot of NeoTax add enterprises form" loading="lazy"></figure>
+                        </div>
+                        <div class="project-details">
+                            <h4 class="details-title">Description</h4>
+                            <p>
+                                NeoTax is an intuitive and visually appealing web-based accounting management system prototype, developed using HTML5, CSS3, and vanilla JavaScript. Aimed at accountants, accounting assistants, and entrepreneurs in Colombia, it offers role-based authentication, company management, automatic invoice generation with VAT, withholding, and ICA calculations (in accordance with Colombian regulations), and an organized history. It leverages localStorage for offline data persistence and is fully responsive. It's important to note that it requires manual tariff updates and doesn't replace professional backend systems.   
+                            </p>
+                        </div>
+                            
+                            <!-- Technologies Used Block -->
+                            <div class="technologies-used-block">
+                                <h4 class="details-title">Technologies Used</h4>
+                                <div class="technologies-used">
+                                    <figure><img src="../assets/images/icon/html5.png" alt="HTML5 icon" class="icon-card" loading="lazy"></figure>
+                                    <figure><img src="../assets/images/icon/css-3.png" alt="CSS3 icon" class="icon-card" loading="lazy"></figure>
+                                    <figure><img src="../assets/images/icon/git.png" alt="Git icon" class="icon-card" loading="lazy"></figure>
+                                </div>
+
+                            <!-- Project Links Block -->
+                            <div class="project-actions-block">
+                                <h4 class="details-title">See Project & Repository</h4>
+                                <div class="view-links project-actions">
+                                    <a href="https://walex0627.github.io/proyecto-reto-corte-3/" target="_blank" class="button project-link primary" rel="noopener noreferrer">
+                                        <img src="../assets/images/icon/Neotax-logo.jpg" alt="NeoTax logo"> View App
+                                    </a>
+                                    <a href="https://github.com/walex0627/proyecto-reto-corte-3" target="_blank" class="button project-link secondary" rel="noopener noreferrer">
+                                        <img src="../assets/images/icon/github_icon.png" alt="GitHub logo"> View Repo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: Fiscovision IA -->
+                <article class="project-card reverse-f-pattern">
+                    <div class="project-header">
+                        <h3>Fiscovision IA</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-screenshots Fiscovision-ss">
+                            <figure><img src="../assets/images/image/projects-ss/Fiscovision/home-ss.png" alt="Screenshot of Fiscovision AI home page" loading="lazy"></figure>
+                            <figure><img src="../assets/images/image/projects-ss/Fiscovision/asistant-ss.png" alt="Screenshot of Fiscovision AI assistant" loading="lazy"></figure>
+                            <figure><img src="../assets/images/image/projects-ss/Fiscovision/calendary-ss.png" alt="Screenshot of Fiscovision AI calendar" loading="lazy"></figure>
+                            <figure><img src="../assets/images/image/projects-ss/Fiscovision/integration-ss.png" alt="Screenshot of Fiscovision AI integrations" loading="lazy"></figure>
+                            <figure><img src="../assets/images/image/projects-ss/Fiscovision/predictor-ss.png" alt="Screenshot of Fiscovision AI predictor" loading="lazy"></figure>
+                        </div>
+                        <div class="project-details">
+                            <h4 class="details-title">Description</h4>
+                            <p>
+                                FISCOVISION AI is a smart web platform designed to streamline tax management for accountants, assistants, and entrepreneurs, especially in Colombia. It offers a central hub for tax obligations, including a dynamic calendar for deadlines, an AI assistant for quick tax queries, and simulators for penalties and risk prediction. By automating calculations and providing real-time insights, the system significantly boosts efficiency, ensures better compliance, and empowers users to make more informed financial decisions, ultimately transforming public accounting into a more proactive and error-resistant practice.                    
+                            </p>
+                        </div>
+
+                            <!-- Technologies Used Block -->
+                            <div class="technologies-used-block">
+                                <h4 class="details-title">Technologies Used</h4>
+                                <div class="technologies-used">
+                                    <figure><img src="../assets/images/icon/html5.png" alt="HTML5 icon" class="icon-card" loading="lazy"></figure>
+                                    <figure><img src="../assets/images/icon/css-3.png" alt="CSS3 icon" class="icon-card" loading="lazy"></figure>
+                                    <figure><img src="../assets/images/icon/git.png" alt="Git icon" class="icon-card" loading="lazy"></figure>
+                                </div>
+                            
+                            <!-- Project Links Block -->
+                            <div class="project-actions-block">
+                                <h4 class="details-title">See Project & Repository</h4>
+                                <div class="view-links project-actions">
+                                    <a href="https://walex0627.github.io/fiscovision/" target="_blank" class="button project-link primary" rel="noopener noreferrer">
+                                        <img src="../assets/images/icon/fiscovision-logo.jpg" alt="Fiscovision AI logo"> View App
+                                    </a>
+                                    <a href="https://github.com/walex0627/fiscovision" target="_blank" class="button project-link secondary" rel="noopener noreferrer">
+                                        <img src="../assets/images/icon/github_icon.png" alt="GitHub logo"> View Repo
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Project 3: Midnight Club -->
+                <article class="project-card">
+                    <div class="project-header">
+                        <h3>Midnight Club</h3>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-screenshots Midnigth-club-ss">
+                            <figure><img src="../assets/images/image/projects-ss/Midnigth club/Captura de pantalla 2025-06-09 112949.png" alt="Screenshot of Midnight Club game screen" loading="lazy"></figure>
+                            <figure><img src="../assets/images/image/projects-ss/Midnigth club/Captura de pantalla 2025-06-09 113037.png" alt="Screenshot of Midnight Club race" loading="lazy"></figure>
+                            <figure><img src="../assets/images/image/projects-ss/Midnigth club/Captura de pantalla 2025-06-09 113058.png" alt="Screenshot of Midnight Club car selection" loading="lazy"></figure>
+                        </div>
+                        <div class="project-details">
+                            <h4 class="details-title">Description</h4>
+                            <p>
+                                The Midnight Club (also known as Mid Night Club) was an infamous, illicit street racing gang that operated on Japan's Shuto Expressway, particularly the Bayshore Route (Wangan), from the late 1980s until 1999. Known for their extreme speeds, often exceeding 300 km/h (186 mph), and highly modified cars, they adhered to a strict code of conduct that prioritized safety and respect among members and other drivers. Despite their dangerous activities, they gained a legendary status in the automotive world due to their commitment to high performance and the mystique surrounding their secretive operations. The club disbanded voluntarily after an accident involving a biker gang, deciding that the risks to the public had become too great.
+                            </p>
+                        </div>
+
+                            <!-- Technologies Used Block -->
+                        <div class="technologies-used-block">
+                                <h4 class="details-title">Technologies Used</h4>
+                                <div class="technologies-used">
+                                    <figure><img src="../assets/images/icon/html5.png" alt="HTML5 icon" class="icon-card" loading="lazy"></figure>
+                                    <figure><img src="../assets/images/icon/css-3.png" alt="CSS3 icon" class="icon-card" loading="lazy"></figure>
+                                    <figure><img src="../assets/images/icon/git.png" alt="Git icon" class="icon-card" loading="lazy"></figure>
+                        </div>
+
+                            <!-- Project Links Block -->
+                            <div class="project-actions-block">
+                                <h4 class="details-title">See Project</h4>
+                                <div class="view-links project-actions">
+                                    <a href="#" class="button project-link primary disabled" disabled>
+                                        <img src="../assets/images/image/projects-ss/Midnigth club/muy-pronto.png" alt="Coming soon image"> Coming Soon
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
         </main>
+
         <footer>
             <div class="footer-container">
-                <section class="footer-ubication">
-                    <iframe src="https://www.google.com/maps/embed?pb=!4v1747845807737!6m8!1m7!1sAVVTsTy7C4OIz248AEJefw!2m2!1d10.98856220764775!2d-74.78054567779829!3f282.5720026069151!4f6.603538653977225!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <address> <p>Dirección: Nte. Centro Historico, Barranquilla, Atlántico</p>
+                <section class="footer-details">
+                <!-- Google Maps iframe for Riwi Barranquilla -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7833.32512118629!2d-74.78059415577899!3d10.988822606049263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d4aeaac2f2d%3A0x75a98d3e5d3b1c19!2sF%C3%A1brica%20de%20Cultura!5e0!3m2!1ses!2sco!4v1750948481776!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                    <address> <p>Dirección: Nte. Centro Historico, Barranquilla, Atlántico</p>
                     </address>
-                    <p>© 2025 Walter Gomez. Todos los derechos reservados.</p>
+                    <p>© <span id="current-year"></span> Walter Gomez. All rights reserved.</p>
                 </section>
                 <section class="footer-social-media">
-                    <h3>Mis redes de contacto:</h3>
-                    <ul> <li class="social-links"><a href="https://www.instagram.com/off_seasonn/" target="_blank"><img src="../assets/images/icon/instagram_icon.png" alt="Instagram icon"></a></li>
-                        <li class="social-links"><a href="https://github.com/walex0627" target="_blank"><img src="../assets/images/icon/github_icon.png" alt="GitHub icon"></a></li>
-                        <li class="social-links"><a href="https://www.linkedin.com/in/walter-alex-g%C3%B3mez-sierra-8842a8278/" target="_blank"><img src="../assets/images/icon/linkedin_icon.png" alt="LinkedIn icon"></a></li>
+                    <h3>My Contact Networks:</h3>
+                    <ul class="social-links-list">
+                        <li class="social-links"><a href="https://www.instagram.com/off_seasonn/" target="_blank" rel="noopener noreferrer"><img src="../assets/images/icon/instagram_icon.png" alt="Instagram icon" loading="lazy"></a></li>
+                        <li class="social-links"><a href="https://github.com/walex0627" target="_blank" rel="noopener noreferrer"><img src="../assets/images/icon/github_icon.png" alt="GitHub icon" loading="lazy"></a></li>
+                        <li class="social-links"><a href="https://www.linkedin.com/in/walter-alex-g%C3%B3mez-sierra-8842a8278/" target="_blank" rel="noopener noreferrer"><img src="../assets/images/icon/linkedin_icon.png" alt="LinkedIn icon" loading="lazy"></a></li>
                     </ul>
                 </section>
-                </div>
+            </div>
         </footer>
+
+        <!-- Script for animations and to update the year in the footer -->
+        <script src="../assets/js/projects.js"></script>
+        <script>
+        </script>
     </body>
 </html>
